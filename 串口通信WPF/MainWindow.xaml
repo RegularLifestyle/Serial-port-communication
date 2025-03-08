@@ -5,16 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:串口通信WPF"
         mc:Ignorable="d"
-        Title="串口通信工具" Height="600" Width="800">
-    <Grid>
+        Title="串口通信工具" Height="600" Width="1000">
+    <Grid HorizontalAlignment="Center" Width="1000" RenderTransformOrigin="0.5,0.5" Margin="0,0,0,-12">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-0.016"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
+
         <!--#region 服务器端 -->
         <GroupBox Grid.Column="0" Header="服务器端" Margin="10">
-            <StackPanel>
+            <StackPanel HorizontalAlignment="Right" Width="301">
                 <TextBox x:Name="txtServerIP" Text="127.0.0.1" Margin="5"/>
                 <TextBox x:Name="txtServerPort" Text="8080" Margin="5"/>
                 <StackPanel Orientation="Horizontal" Margin="5">
@@ -28,7 +37,7 @@
             </StackPanel>
         </GroupBox>
         <!--#endregion-->
-        
+
         <!--#region 客户端 -->
         <GroupBox Grid.Column="1" Header="客户端" Margin="10">
             <StackPanel>
@@ -43,6 +52,49 @@
                 <TextBox x:Name="txtClientMessage" Margin="5" Height="50"/>
                 <Button x:Name="btnClientSend" Content="发送消息" Click="BtnClientSend_Click" Margin="5"/>
 
+            </StackPanel>
+        </GroupBox>
+        <!--#endregion-->
+        <!--#region 串口通信模块-->
+        <GroupBox Grid.Column="2" Header="串口通信" Margin="10">
+            <StackPanel>
+                <!--端口选择-->
+                <ComboBox x:Name="cmbPorts" Margin="5" ItemsSource="{Binding AvailablePorts}" DisplayMemberPath="PortName"></ComboBox>
+               
+                <!--#region 参数配置 -->
+                <!--参数配置-->
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBox x:Name="txtBaudRate" Text="9600" Width="80" Margin="0,0,5,0"/>
+                    <ComboBox x:Name="cmbParity" SelectedIndex="0" Width="70">
+                        <ComboBoxItem>None</ComboBoxItem>
+                        <ComboBoxItem>Odd</ComboBoxItem>
+                        <ComboBoxItem>Even</ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox x:Name="cmbDataBits" SelectedIndex="0" Width="60" Margin="5,0">
+                        <ComboBoxItem>8</ComboBoxItem>
+                        <ComboBoxItem>7</ComboBoxItem>
+                        <ComboBoxItem>6</ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox x:Name="cmbStopBits" SelectedIndex="0" Width="60">
+                        <ComboBoxItem>1</ComboBoxItem>
+                        <ComboBoxItem>2</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <!--#endregion-->
+                
+                <!--#region 操作按钮 -->
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Button x:Name="btnOpenPort" Content="打开串口" Height="25" Width="80" Click="btnOpenPort_Click"/>
+                    <Button x:Name="btnClosePort" Content="关闭串口" Width="80" Margin="5,0" Click="btnClosePort_Click"/>
+                </StackPanel>
+                <!--#endregion-->
+
+
+                <!--#region 数据收发 -->
+                <ListBox x:Name="lbSerialLog" Height="200" Margin="5"/>
+                <TextBox x:Name="txtSerialMessage" Margin="5" Height="50"/>
+                <Button x:Name="btnSerialSend" Content="发送数据" Margin="5"/>
+                <!--#endregion-->
             </StackPanel>
         </GroupBox>
         <!--#endregion-->

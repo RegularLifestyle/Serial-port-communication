@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\\u4E32\u53E3\u901A\u4FE1\u5F00\u53D1\\\u4E32\u53E3\u901A\u4FE1WPF\\",
+  "WorkspaceRootPath": "E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\Serial-port-communication\\\u4E32\u53E3\u901A\u4FE1WPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2FD95648-15AA-47BA-8487-0AC3064376DC}|\u4E32\u53E3\u901A\u4FE1WPF.csproj|e:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\\u4E32\u53E3\u901A\u4FE1\u5F00\u53D1\\\u4E32\u53E3\u901A\u4FE1wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2FD95648-15AA-47BA-8487-0AC3064376DC}|\u4E32\u53E3\u901A\u4FE1WPF.csproj|E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\Serial-port-communication\\\u4E32\u53E3\u901A\u4FE1WPF\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2FD95648-15AA-47BA-8487-0AC3064376DC}|\u4E32\u53E3\u901A\u4FE1WPF.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\\u4E32\u53E3\u901A\u4FE1\u5F00\u53D1\\\u4E32\u53E3\u901A\u4FE1WPF\\obj\\Debug\\MainWindow.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:obj\\Debug\\MainWindow.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2FD95648-15AA-47BA-8487-0AC3064376DC}|\u4E32\u53E3\u901A\u4FE1WPF.csproj|e:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\serial-port-communication\\\u4E32\u53E3\u901A\u4FE1wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2FD95648-15AA-47BA-8487-0AC3064376DC}|\u4E32\u53E3\u901A\u4FE1WPF.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2FD95648-15AA-47BA-8487-0AC3064376DC}|\u4E32\u53E3\u901A\u4FE1WPF.csproj|e:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\\u4E32\u53E3\u901A\u4FE1\u5F00\u53D1\\\u4E32\u53E3\u901A\u4FE1wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{2FD95648-15AA-47BA-8487-0AC3064376DC}|\u4E32\u53E3\u901A\u4FE1WPF.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\Serial-port-communication\\\u4E32\u53E3\u901A\u4FE1WPF\\obj\\Debug\\MainWindow.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:obj\\Debug\\MainWindow.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +26,11 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\\u4E32\u53E3\u901A\u4FE1\u5F00\u53D1\\\u4E32\u53E3\u901A\u4FE1WPF\\MainWindow.xaml",
+              "DocumentMoniker": "E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\Serial-port-communication\\\u4E32\u53E3\u901A\u4FE1WPF\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\\u4E32\u53E3\u901A\u4FE1\u5F00\u53D1\\\u4E32\u53E3\u901A\u4FE1WPF\\MainWindow.xaml",
+              "ToolTip": "E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\Serial-port-communication\\\u4E32\u53E3\u901A\u4FE1WPF\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-03-07T04:45:51.144Z",
@@ -40,27 +40,26 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\\u4E32\u53E3\u901A\u4FE1\u5F00\u53D1\\\u4E32\u53E3\u901A\u4FE1WPF\\MainWindow.xaml.cs",
+              "DocumentMoniker": "E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\Serial-port-communication\\\u4E32\u53E3\u901A\u4FE1WPF\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\\u4E32\u53E3\u901A\u4FE1\u5F00\u53D1\\\u4E32\u53E3\u901A\u4FE1WPF\\MainWindow.xaml.cs",
+              "ToolTip": "E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\Serial-port-communication\\\u4E32\u53E3\u901A\u4FE1WPF\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAIwFwAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAANUAAAAAAAAAAAAQwNsAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-07T04:45:50.212Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.g.i.cs",
-              "DocumentMoniker": "E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\\u4E32\u53E3\u901A\u4FE1\u5F00\u53D1\\\u4E32\u53E3\u901A\u4FE1WPF\\obj\\Debug\\MainWindow.g.i.cs",
+              "DocumentMoniker": "E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\Serial-port-communication\\\u4E32\u53E3\u901A\u4FE1WPF\\obj\\Debug\\MainWindow.g.i.cs",
               "RelativeDocumentMoniker": "obj\\Debug\\MainWindow.g.i.cs",
-              "ToolTip": "E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\\u4E32\u53E3\u901A\u4FE1\u5F00\u53D1\\\u4E32\u53E3\u901A\u4FE1WPF\\obj\\Debug\\MainWindow.g.i.cs",
+              "ToolTip": "E:\\\u5DE5\u4F5C\u8D44\u6599\\git\u7A0B\u5E8F\\Serial-port-communication\\\u4E32\u53E3\u901A\u4FE1WPF\\obj\\Debug\\MainWindow.g.i.cs",
               "RelativeToolTip": "obj\\Debug\\MainWindow.g.i.cs",
-              "ViewState": "AgIAAOgAAAAAAAAAAAAEwPwAAABQAAAAAAAAAA==",
+              "ViewState": "AgIAADgBAAAAAAAAAAAEwEwBAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T06:27:42.496Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-07T06:27:42.496Z"
             }
           ]
         }

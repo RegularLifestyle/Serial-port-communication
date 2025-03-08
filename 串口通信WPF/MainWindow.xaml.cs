@@ -14,7 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.IO.Ports;
+using System.Collections.ObjectModel;
+using System.Threading;
 namespace 串口通信WPF
 {
     /// <summary>
@@ -32,10 +34,17 @@ namespace 串口通信WPF
         private TcpClient client;
         private NetworkStream clientStream;
         private bool IsClientConnected = false;
+
+        //串口相关
+        private SerialPort SerialPort;
+        private bool isSerialOpen;
+        public ObservableCollection<SerialPort> AvailablePorts { get; } = new ObservableCollection<SerialPort>();
         #endregion
         public MainWindow()
         {
             InitializeComponent();
+            LoadSerialPorts();
+            DataContext = this;
         }
         #region 服务器端逻辑
 
@@ -57,7 +66,7 @@ namespace 串口通信WPF
             {
                 MessageBox.Show($"启动服务器失败：{ex.Message}");
             }
-        } 
+        }
         #endregion
 
         #region 异步监听方法
@@ -90,7 +99,7 @@ namespace 串口通信WPF
             {
                 using (var stream = client.GetStream())
                 {
-                    var buffer = new byte[1024*3];
+                    var buffer = new byte[1024 * 3];
                     while (true)
                     {
                         //ReadAsync方法中缓冲区重用机制，每次读取都会覆盖buffer中的数据，就是自动清空
@@ -100,6 +109,12 @@ namespace 串口通信WPF
                         Dispatcher.Invoke(() =>
                         {
                             lbServerLog.Items.Add($"收到消息:{message}");
+                            //转发到串口
+                            if (isSerialOpen)
+                            {
+                                byte[]data=Encoding.ASCII.GetBytes(message+"\n");
+                                SerialPort.Write(data, 0, data.Length);
+                            }
                         });
                     }
                 }
@@ -108,12 +123,12 @@ namespace 串口通信WPF
             {
                 Dispatcher.Invoke(() => MessageBox.Show($"客户端处理错误: {ex.Message}"));
             }
-        } 
+        }
         #endregion
         #endregion
 
         #region 客户端逻辑
-       
+
         #region 客户端接收数据处理
         //客户端接收数据处理
         private async Task ReceiveClientMessages()
@@ -169,6 +184,8 @@ namespace 串口通信WPF
             }
         }
         #endregion
+
+        #region TCP客户端服务器通讯事件
         private void BtnServerSend_Click(object sender, RoutedEventArgs e)
         {
             if (connectedClient?.Connected == true)
@@ -176,7 +193,7 @@ namespace 串口通信WPF
                 SendMessage(connectedClient.GetStream(), txtServerMessage, lbServerLog);
             }
         }
-       
+
         private void BtnStopServer_Click(object sender, RoutedEventArgs e)
         {
             IsServerRunning = false;
@@ -208,7 +225,7 @@ namespace 串口通信WPF
                 MessageBox.Show($"连接失败: {ex.Message}");
             }
         }
-       
+
 
         #endregion
 
@@ -217,6 +234,104 @@ namespace 串口通信WPF
             if (client?.Connected == true)
             {
                 SendMessage(clientStream, txtClientMessage, lbClientLog);
+            }
+        }
+        #endregion
+
+        #region 串口通信逻辑
+        #region 加载可用串口
+        private void LoadSerialPorts()
+        {
+            AvailablePorts.Clear();
+            foreach (var item in SerialPort.GetPortNames())
+            {
+                AvailablePorts.Add(new SerialPort(item));
+            }
+        }
+        #endregion
+
+        #region 打开串口
+        private void btnOpenPort_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (cmbPorts.SelectedItem == null) return;
+
+                SerialPort = cmbPorts.SelectedItem as SerialPort;
+                SerialPort.BaudRate = int.Parse(txtBaudRate.Text);
+                SerialPort.Parity = (Parity)cmbParity.SelectedIndex;
+                SerialPort.DataBits = int.Parse((cmbDataBits.SelectedItem as ComboBoxItem).Content.ToString());
+                SerialPort.StopBits = (StopBits)(cmbStopBits.SelectedIndex + 1);//停止位从1开始
+                SerialPort.DataReceived += SerialPort_DataReceived;//订阅接收数据事件
+                SerialPort.Open();
+                isSerialOpen = true;
+                lbSerialLog.Items.Add($"{DateTime.Now} 串口已打开");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"打开串口失败: {ex.Message}");
+            }
+        }
+        //接收数据事件
+        private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            using (var cts = new CancellationTokenSource(TimeSpan.FromSeconds(3)))
+            {
+                try
+                {
+                    byte[] buffer = new byte[SerialPort.BytesToRead];
+                    SerialPort.Read(buffer, 0, buffer.Length);
+                    Dispatcher.Invoke(() =>
+                    {
+                        string message = Encoding.ASCII.GetString(buffer);
+                        lbSerialLog.Items.Add($"[RX] {message}");
+                    });
+                }
+                catch (OperationCanceledException)
+                {
+                    Dispatcher.Invoke(() => lbSerialLog.Items.Add("接收超时"));
+                }
+                catch (Exception ex)
+                {
+                    Dispatcher.Invoke(() => MessageBox.Show($"接收错误: {ex.Message}"));
+                }
+            }
+
+        }
+
+        #endregion
+        //关闭串口
+        private void btnClosePort_Click(object sender, RoutedEventArgs e)
+        {
+            if (SerialPort?.IsOpen == true)
+            {
+                SerialPort.Close();
+                lbSerialLog.Items.Add($"{DateTime.Now} 串口已关闭");
+                isSerialOpen = false;
+            }
+        }
+        //窗口关闭时释放资源
+        protected override void OnClosed(EventArgs e)
+        {
+            SerialPort?.Close();
+            base.OnClosed(e);
+        }
+        #endregion
+        //自定义协议处理（示例：以换行符为结束标记）
+        private StringBuilder serialBuffer = new StringBuilder();
+        private void ProcessSerialData(string rawData)
+        {
+            serialBuffer.Append(rawData);
+            while (serialBuffer.ToString().Contains('\n'))
+            {
+                int index = serialBuffer.ToString().IndexOf('\n');
+                string message = serialBuffer.ToString(0, index);
+                serialBuffer.Remove(0, index + 1);
+
+                Dispatcher.Invoke(() =>
+                {
+                    lbSerialLog.Items.Add($"[完整消息] {message}");
+                });
             }
         }
     }
