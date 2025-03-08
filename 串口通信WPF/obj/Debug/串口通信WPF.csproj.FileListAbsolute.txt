@@ -1,0 +1,15 @@
+E:\工作资料\git程序\串口通信开发\串口通信WPF\obj\Debug\串口通信WPF.csproj.AssemblyReference.cache
+E:\工作资料\git程序\串口通信开发\串口通信WPF\obj\Debug\MainWindow.g.cs
+E:\工作资料\git程序\串口通信开发\串口通信WPF\obj\Debug\App.g.cs
+E:\工作资料\git程序\串口通信开发\串口通信WPF\obj\Debug\串口通信WPF_MarkupCompile.cache
+E:\工作资料\git程序\串口通信开发\串口通信WPF\obj\Debug\串口通信WPF_MarkupCompile.lref
+E:\工作资料\git程序\串口通信开发\串口通信WPF\bin\Debug\串口通信WPF.exe.config
+E:\工作资料\git程序\串口通信开发\串口通信WPF\bin\Debug\串口通信WPF.exe
+E:\工作资料\git程序\串口通信开发\串口通信WPF\bin\Debug\串口通信WPF.pdb
+E:\工作资料\git程序\串口通信开发\串口通信WPF\obj\Debug\MainWindow.baml
+E:\工作资料\git程序\串口通信开发\串口通信WPF\obj\Debug\串口通信WPF.g.resources
+E:\工作资料\git程序\串口通信开发\串口通信WPF\obj\Debug\串口通信WPF.Properties.Resources.resources
+E:\工作资料\git程序\串口通信开发\串口通信WPF\obj\Debug\串口通信WPF.csproj.GenerateResource.cache
+E:\工作资料\git程序\串口通信开发\串口通信WPF\obj\Debug\串口通信WPF.csproj.CoreCompileInputs.cache
+E:\工作资料\git程序\串口通信开发\串口通信WPF\obj\Debug\串口通信WPF.exe
+E:\工作资料\git程序\串口通信开发\串口通信WPF\obj\Debug\串口通信WPF.pdb
